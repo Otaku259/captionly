@@ -1,39 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { Upload, ChevronDown, Play, Check } from "lucide-react";
 import {
   FREE_VIDEO_LIMIT,
   LIFETIME_PRICE_GBP,
   formatPrice,
 } from "@/lib/config";
-
-const c = {
-  black: "#121214",
-  blackSoft: "#1B1C21",
-  line: "#2A2B30",
-  lineSoft: "rgba(255,255,255,0.08)",
-  screen: "#ECEEF2",
-  screenSoft: "#F6F7F9",
-  ink: "#16171B",
-  inkSoft: "#5B5D66",
-  white: "#F7F7F5",
-  whiteSoft: "rgba(247,247,245,0.6)",
-  yellow: "#F5E028",
-  coral: "#FF5470",
-};
+import { colors as c } from "@/lib/theme";
 
 const freeVideoLabel = `${FREE_VIDEO_LIMIT} free video${FREE_VIDEO_LIMIT === 1 ? "" : "s"}`;
-
-const fontImport = `
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap');
-:root { --font-display: 'Anton', sans-serif; --font-body: 'Inter', sans-serif; --font-mono: 'IBM Plex Mono', monospace; }
-@keyframes riseIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes bar { 0%,100% { transform: scaleY(0.3); } 50% { transform: scaleY(1); } }
-.rise-1 { animation: riseIn 0.5s 0.15s cubic-bezier(.2,.7,.3,1) both; }
-.rise-2 { animation: riseIn 0.5s 0.35s cubic-bezier(.2,.7,.3,1) both; }
-.rise-3 { animation: riseIn 0.5s 0.55s cubic-bezier(.2,.7,.3,1) both; }
-`;
 
 function Timecode({ children }: { children: React.ReactNode }) {
   return (
@@ -126,13 +103,22 @@ function NavBar() {
           <a href="#pricing" style={{ opacity: 0.85 }}>Pricing</a>
           <a href="#faq" style={{ opacity: 0.85 }}>FAQ</a>
         </nav>
-        <a
-          href="#upload"
-          className="text-sm font-semibold px-4 py-2 rounded-full"
-          style={{ background: c.yellow, color: c.ink, fontFamily: "var(--font-body)" }}
-        >
-          Try it free
-        </a>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/login"
+            className="text-sm hidden sm:inline"
+            style={{ color: c.whiteSoft, fontFamily: "var(--font-body)" }}
+          >
+            Log in
+          </Link>
+          <a
+            href="#upload"
+            className="text-sm font-semibold px-4 py-2 rounded-full"
+            style={{ background: c.yellow, color: c.ink, fontFamily: "var(--font-body)" }}
+          >
+            Try it free
+          </a>
+        </div>
       </div>
     </header>
   );
@@ -507,7 +493,6 @@ function Footer() {
 export default function LandingPage() {
   return (
     <div style={{ background: c.black }}>
-      <style>{fontImport}</style>
       <NavBar />
       <Hero />
       <UploadDemo />

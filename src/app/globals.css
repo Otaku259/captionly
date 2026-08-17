@@ -1,12 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap");
 @import "tailwindcss";
 
 :root {
   --background: #121214;
   --foreground: #f7f7f5;
+  --font-display: "Anton", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes bar {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+.rise-1 {
+  animation: riseIn 0.5s 0.15s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+.rise-2 {
+  animation: riseIn 0.5s 0.35s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+.rise-3 {
+  animation: riseIn 0.5s 0.55s cubic-bezier(0.2, 0.7, 0.3, 1) both;
 }
