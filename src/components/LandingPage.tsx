@@ -94,7 +94,7 @@ function NavBar() {
             C
           </div>
           <span className="text-lg font-semibold" style={{ color: c.white, fontFamily: "var(--font-body)" }}>
-            Captionly
+            Captionlift
           </span>
         </div>
         <nav className="hidden md:flex items-center gap-8 text-sm" style={{ color: c.whiteSoft, fontFamily: "var(--font-body)" }}>
@@ -138,7 +138,7 @@ function Hero() {
           <span style={{ color: c.yellow }}>captioned</span> instantly.
         </h1>
         <p className="text-lg mb-8 max-w-md rise-2" style={{ color: c.whiteSoft, fontFamily: "var(--font-body)" }}>
-          Upload. Caption. Download. Captionly transcribes the speech in your video with AI
+          Upload. Caption. Download. Captionlift transcribes the speech in your video with AI
           and burns clean, readable subtitles straight onto the footage — ready for TikTok,
           Reels or Shorts.
         </p>
@@ -215,7 +215,7 @@ function UploadDemo() {
 function HowItWorks() {
   const steps = [
     { tc: "00:00", title: "Upload", body: "Pick a video from your phone or computer. Common formats work out of the box." },
-    { tc: "00:08", title: "AI transcribes", body: "Captionly listens to the speech and generates timestamped captions automatically." },
+    { tc: "00:08", title: "AI transcribes", body: "Captionlift listens to the speech and generates timestamped captions automatically." },
     { tc: "00:15", title: "Edit & style", body: "Fix any words that came out wrong, then pick a caption look — size, position, colour." },
     { tc: "00:22", title: "Download", body: "Get the finished video with captions burned in, ready to post." },
   ];
@@ -478,7 +478,7 @@ function Footer() {
     <footer className="px-6 py-10" style={{ background: c.black }}>
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <span className="text-sm" style={{ color: c.inkSoft, fontFamily: "var(--font-body)" }}>
-          © {new Date().getFullYear()} Captionly
+          © {new Date().getFullYear()} Captionlift
         </span>
         <div className="flex gap-6 text-sm" style={{ color: c.inkSoft, fontFamily: "var(--font-body)" }}>
           <span>Privacy</span>

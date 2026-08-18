@@ -1,4 +1,4 @@
--- Captionly initial schema
+-- Captionlift initial schema
 -- Run this once in the Supabase SQL Editor: Dashboard → SQL Editor → New query → paste → Run.
 
 -- =========================================================================

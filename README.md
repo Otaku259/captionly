@@ -1,4 +1,4 @@
-# Captionly
+# Captionlift
 
 AI video captioning for short-form creators. Upload a video, get it back with
 clean, timestamped captions burned in — built for TikTok, Reels and Shorts.

@@ -34,7 +34,7 @@ export default function LoginPage() {
     <main className="min-h-screen flex items-center justify-center px-6" style={{ background: c.black }}>
       <div className="w-full max-w-sm">
         <Link href="/" className="text-sm inline-block mb-8" style={{ color: c.whiteSoft, fontFamily: "var(--font-body)" }}>
-          ← Back to Captionly
+          ← Back to Captionlift
         </Link>
         <h1 className="text-3xl mb-8" style={{ fontFamily: "var(--font-display)", color: c.white }}>
           Log in

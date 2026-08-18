@@ -1,5 +1,5 @@
 /**
- * Centralised, configurable business rules for Captionly.
+ * Centralised, configurable business rules for Captionlift.
  *
  * Change these by setting the environment variable — never hardcode
  * the free video limit, the price, or the cost-control limits
