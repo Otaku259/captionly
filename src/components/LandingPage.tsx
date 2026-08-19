@@ -112,7 +112,7 @@ function NavBar() {
             Log in
           </Link>
           <a
-            href="#upload"
+            href="/upload"
             className="text-sm font-semibold px-4 py-2 rounded-full"
             style={{ background: c.yellow, color: c.ink, fontFamily: "var(--font-body)" }}
           >
@@ -143,13 +143,13 @@ function Hero() {
           Reels or Shorts.
         </p>
         <div className="flex flex-wrap items-center gap-4 rise-3">
-          <a
-            href="#upload"
+          <Link
+            href="/upload"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold"
             style={{ background: c.yellow, color: c.ink, fontFamily: "var(--font-body)" }}
           >
             <Upload size={18} /> Upload your video
-          </a>
+          </Link>
           <a
             href="#how"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold"
@@ -201,12 +201,13 @@ function UploadDemo() {
         <p className="text-sm mb-6" style={{ color: c.inkSoft, fontFamily: "var(--font-body)" }}>
           MP4, MOV or WebM · your {freeVideoLabel} is free
         </p>
-        <button
-          className="px-6 py-3 rounded-full font-semibold"
+        <Link
+          href="/upload"
+          className="inline-block px-6 py-3 rounded-full font-semibold"
           style={{ background: c.yellow, color: c.ink, fontFamily: "var(--font-body)" }}
         >
           Choose a video
-        </button>
+        </Link>
       </div>
     </section>
   );
@@ -462,13 +463,13 @@ function FinalCTA() {
       <h2 className="text-4xl sm:text-5xl mb-6 max-w-2xl mx-auto" style={{ fontFamily: "var(--font-display)", color: c.ink }}>
         Your next video could already have captions.
       </h2>
-      <a
-        href="#upload"
+      <Link
+        href="/upload"
         className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold"
         style={{ background: c.ink, color: c.white, fontFamily: "var(--font-body)" }}
       >
         <Upload size={18} /> Upload your first video, free
-      </a>
+      </Link>
     </section>
   );
 }

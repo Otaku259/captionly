@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { FREE_VIDEO_LIMIT, LIFETIME_PRICE_GBP, formatPrice } from "@/lib/config";
 import { colors as c } from "@/lib/theme";
@@ -64,7 +65,16 @@ export default async function AccountPage() {
             </>
           )}
         </div>
-        <LogoutButton />
+        <div className="flex gap-3">
+          <Link
+            href="/upload"
+            className="text-sm px-4 py-2 rounded-full font-semibold"
+            style={{ background: c.yellow, color: c.ink, fontFamily: "var(--font-body)" }}
+          >
+            Upload a video
+          </Link>
+          <LogoutButton />
+        </div>
       </div>
     </main>
   );
