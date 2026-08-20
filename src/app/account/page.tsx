@@ -34,7 +34,16 @@ export default async function AccountPage() {
           Your account
         </h1>
         <div className="rounded-2xl p-6 mb-6" style={{ background: c.blackSoft, border: `1px solid ${c.lineSoft}` }}>
-          <p className="text-sm mb-4" style={{ color: c.whiteSoft, fontFamily: "var(--font-body)" }}>
+          <div className="flex items-center gap-2 mb-4">
+            <span className="w-2 h-2 rounded-full" style={{ background: "#4ADE80" }} />
+            <span
+              className="text-xs uppercase tracking-wide"
+              style={{ color: c.inkSoft, fontFamily: "var(--font-body)" }}
+            >
+              Signed in
+            </span>
+          </div>
+          <p className="text-sm mb-4" style={{ color: c.white, fontFamily: "var(--font-body)" }}>
             {profile?.email ?? user.email}
           </p>
 
@@ -44,7 +53,7 @@ export default async function AccountPage() {
                 Lifetime access
               </p>
               <p className="text-sm" style={{ color: c.inkSoft, fontFamily: "var(--font-body)" }}>
-                Unlimited videos · Ad-free
+                Unlimited videos
               </p>
             </>
           ) : (

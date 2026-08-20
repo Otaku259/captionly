@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Upload, ChevronDown, Play, Check } from "lucide-react";
 import {
@@ -9,6 +9,7 @@ import {
   formatPrice,
 } from "@/lib/config";
 import { colors as c } from "@/lib/theme";
+import { createClient } from "@/lib/supabase/client";
 
 const freeVideoLabel = `${FREE_VIDEO_LIMIT} free video${FREE_VIDEO_LIMIT === 1 ? "" : "s"}`;
 
@@ -83,6 +84,15 @@ function PhoneFrame({ children, className = "" }: { children: React.ReactNode; c
 }
 
 function NavBar() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => {
+      setIsLoggedIn(!!data.user);
+    });
+  }, []);
+
   return (
     <header className="w-full">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-6">
@@ -105,18 +115,18 @@ function NavBar() {
         </nav>
         <div className="flex items-center gap-4">
           <Link
-            href="/login"
+            href={isLoggedIn ? "/account" : "/login"}
             className="text-sm hidden sm:inline"
             style={{ color: c.whiteSoft, fontFamily: "var(--font-body)" }}
           >
-            Log in
+            {isLoggedIn ? "My account" : "Log in"}
           </Link>
           <a
             href="/upload"
             className="text-sm font-semibold px-4 py-2 rounded-full"
             style={{ background: c.yellow, color: c.ink, fontFamily: "var(--font-body)" }}
           >
-            Try it free
+            {isLoggedIn ? "Upload a video" : "Try it free"}
           </a>
         </div>
       </div>
@@ -373,7 +383,6 @@ function Pricing() {
               `${freeVideoLabel}`,
               "AI-generated captions",
               "Basic style customisation",
-              "Small, unobtrusive ads",
             ].map((f) => (
               <div key={f} className="flex items-center gap-2 mb-3 text-sm" style={{ color: c.ink, fontFamily: "var(--font-body)" }}>
                 <Check size={16} color={c.inkSoft} /> {f}
@@ -395,7 +404,6 @@ function Pricing() {
               "Unlimited captioned videos",
               "AI-generated captions",
               "Full style customisation",
-              "No ads, ever",
               "Lifetime access — no subscription",
             ].map((f) => (
               <div key={f} className="flex items-center gap-2 mb-3 text-sm" style={{ color: c.white, fontFamily: "var(--font-body)" }}>
