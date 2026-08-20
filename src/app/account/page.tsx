@@ -28,7 +28,25 @@ export default async function AccountPage() {
   const remaining = Math.max(FREE_VIDEO_LIMIT - freeJobsUsed, 0);
 
   return (
-    <main className="min-h-screen px-6 py-16 flex justify-center" style={{ background: c.black }}>
+    <main className="min-h-screen px-6 py-16" style={{ background: c.black }}>
+      <div className="max-w-6xl mx-auto mb-10">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2"
+          style={{ fontFamily: "var(--font-body)" }}
+        >
+          <span
+            className="w-7 h-7 rounded-lg flex items-center justify-center font-extrabold text-sm"
+            style={{ background: c.yellow, color: c.ink, fontFamily: "var(--font-display)" }}
+          >
+            C
+          </span>
+          <span className="text-base font-semibold" style={{ color: c.white }}>
+            Captionlift
+          </span>
+        </Link>
+      </div>
+      <div className="flex justify-center">
       <div className="w-full max-w-md">
         <h1 className="text-3xl mb-8" style={{ fontFamily: "var(--font-display)", color: c.white }}>
           Your account
@@ -84,6 +102,7 @@ export default async function AccountPage() {
           </Link>
           <LogoutButton />
         </div>
+      </div>
       </div>
     </main>
   );
