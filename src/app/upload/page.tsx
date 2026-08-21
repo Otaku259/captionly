@@ -17,6 +17,7 @@ type Stage = "idle" | "checking" | "uploading" | "transcribing" | "done" | "erro
 export default function UploadPage() {
   const router = useRouter();
   const videoRef = useRef<HTMLVideoElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [stage, setStage] = useState<Stage>("idle");
   const [error, setError] = useState<string | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -27,13 +28,19 @@ export default function UploadPage() {
 
   useEffect(() => {
     const supabase = createClient();
-    supabase.auth.getUser().then(({ data: { user } }) => {
-      if (!user) {
+    supabase.auth
+      .getUser()
+      .then(({ data: { user } }) => {
+        if (!user) {
+          router.push("/login?next=/upload");
+          return;
+        }
+        setCheckingAuth(false);
+      })
+      .catch(() => {
+        // Never leave the page stuck on a blank screen if this call fails.
         router.push("/login?next=/upload");
-        return;
-      }
-      setCheckingAuth(false);
-    });
+      });
   }, [router]);
 
   async function handleFile(file: File) {
@@ -150,8 +157,10 @@ export default function UploadPage() {
         </h1>
 
         {stage === "idle" && (
-          <label
-            className="block rounded-3xl p-10 text-center cursor-pointer"
+          <button
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            className="block w-full rounded-3xl p-10 text-center cursor-pointer"
             style={{ border: `2px dashed ${c.lineSoft}`, background: c.blackSoft }}
           >
             <p className="text-sm mb-2" style={{ color: c.white, fontFamily: "var(--font-body)" }}>
@@ -161,12 +170,13 @@ export default function UploadPage() {
               MP4, MOV or WebM · up to {MAX_VIDEO_DURATION_SECONDS}s
             </p>
             <input
+              ref={fileInputRef}
               type="file"
               accept="video/mp4,video/quicktime,video/webm"
               className="hidden"
               onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])}
             />
-          </label>
+          </button>
         )}
 
         {(stage === "checking" || stage === "uploading" || stage === "transcribing") && (

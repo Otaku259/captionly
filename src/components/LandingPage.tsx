@@ -410,13 +410,13 @@ function Pricing() {
                 <Check size={16} color={c.yellow} /> {f}
               </div>
             ))}
-            <a
-              href="#upload"
+            <Link
+              href="/upload"
               className="inline-block mt-4 px-6 py-3 rounded-full font-semibold text-sm"
               style={{ background: c.yellow, color: c.ink, fontFamily: "var(--font-body)" }}
             >
               Get lifetime access
-            </a>
+            </Link>
           </div>
         </div>
       </div>
