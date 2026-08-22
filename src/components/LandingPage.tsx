@@ -136,11 +136,11 @@ function NavBar() {
 
 function Hero() {
   return (
-    <section className="max-w-6xl mx-auto px-6 pt-8 pb-24 grid md:grid-cols-2 gap-14 items-center">
+    <section className="max-w-6xl mx-auto px-6 pt-8 pb-16 sm:pb-20 md:pb-24 grid md:grid-cols-2 gap-10 md:gap-14 items-center">
       <div>
         <Timecode>00:00 — UPLOAD A VIDEO</Timecode>
         <h1
-          className="text-5xl sm:text-6xl leading-[0.95] mb-6 rise-1"
+          className="text-4xl sm:text-5xl md:text-6xl leading-[0.95] mb-6 rise-1"
           style={{ fontFamily: "var(--font-display)", color: c.white, letterSpacing: "0.3px" }}
         >
           Your videos,
@@ -194,7 +194,7 @@ function Hero() {
 
 function UploadDemo() {
   return (
-    <section id="upload" className="max-w-4xl mx-auto px-6 pb-28">
+    <section id="upload" className="max-w-4xl mx-auto px-6 pb-16 sm:pb-20 md:pb-28">
       <div
         className="rounded-3xl p-10 text-center"
         style={{ border: `2px dashed ${c.lineSoft}`, background: c.blackSoft }}
@@ -231,7 +231,7 @@ function HowItWorks() {
     { tc: "00:22", title: "Download", body: "Get the finished video with captions burned in, ready to post." },
   ];
   return (
-    <section id="how" className="max-w-6xl mx-auto px-6 pb-28">
+    <section id="how" className="max-w-6xl mx-auto px-6 pb-16 sm:pb-20 md:pb-28">
       <Timecode>HOW IT WORKS</Timecode>
       <h2 className="text-3xl sm:text-4xl mb-12 max-w-lg" style={{ fontFamily: "var(--font-display)", color: c.white }}>
         Four steps. No editing experience needed.
@@ -253,7 +253,7 @@ function HowItWorks() {
 
 function BeforeAfter() {
   return (
-    <section className="max-w-5xl mx-auto px-6 pb-28">
+    <section className="max-w-5xl mx-auto px-6 pb-16 sm:pb-20 md:pb-28">
       <Timecode>SEE THE DIFFERENCE</Timecode>
       <h2 className="text-3xl sm:text-4xl mb-12 max-w-lg" style={{ fontFamily: "var(--font-display)", color: c.white }}>
         Same clip. One has captions.
@@ -338,7 +338,7 @@ function CaptionStyles() {
     { name: "Soft Rounded", bg: "#1C2420", Render: StyleSoft },
   ];
   return (
-    <section id="styles" className="max-w-6xl mx-auto px-6 pb-28">
+    <section id="styles" className="max-w-6xl mx-auto px-6 pb-16 sm:pb-20 md:pb-28">
       <Timecode>CAPTION STYLES</Timecode>
       <h2 className="text-3xl sm:text-4xl mb-12 max-w-lg" style={{ fontFamily: "var(--font-display)", color: c.white }}>
         A few looks to start with.
@@ -369,7 +369,7 @@ function CaptionStyles() {
 
 function Pricing() {
   return (
-    <section id="pricing" className="px-6 py-28" style={{ background: c.screen }}>
+    <section id="pricing" className="px-6 py-16 sm:py-20 md:py-28" style={{ background: c.screen }}>
       <div className="max-w-5xl mx-auto">
         <Timecode>PRICING</Timecode>
         <h2 className="text-3xl sm:text-4xl mb-12 max-w-lg" style={{ fontFamily: "var(--font-display)", color: c.ink }}>
@@ -434,7 +434,7 @@ function FAQ() {
   ];
   const [open, setOpen] = useState(0);
   return (
-    <section id="faq" className="max-w-3xl mx-auto px-6 py-28">
+    <section id="faq" className="max-w-3xl mx-auto px-6 py-16 sm:py-20 md:py-28">
       <Timecode>FAQ</Timecode>
       <h2 className="text-3xl sm:text-4xl mb-10" style={{ fontFamily: "var(--font-display)", color: c.white }}>
         Questions, answered.
@@ -467,7 +467,7 @@ function FAQ() {
 
 function FinalCTA() {
   return (
-    <section className="px-6 py-24 text-center" style={{ background: c.yellow }}>
+    <section className="px-6 py-16 sm:py-20 md:py-24 text-center" style={{ background: c.yellow }}>
       <h2 className="text-4xl sm:text-5xl mb-6 max-w-2xl mx-auto" style={{ fontFamily: "var(--font-display)", color: c.ink }}>
         Your next video could already have captions.
       </h2>

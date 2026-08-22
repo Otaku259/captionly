@@ -157,18 +157,20 @@ export default function UploadPage() {
         </h1>
 
         {stage === "idle" && (
-          <button
-            type="button"
-            onClick={() => fileInputRef.current?.click()}
-            className="block w-full rounded-3xl p-10 text-center cursor-pointer"
-            style={{ border: `2px dashed ${c.lineSoft}`, background: c.blackSoft }}
-          >
-            <p className="text-sm mb-2" style={{ color: c.white, fontFamily: "var(--font-body)" }}>
-              Click to choose a video
-            </p>
-            <p className="text-xs" style={{ color: c.inkSoft, fontFamily: "var(--font-body)" }}>
-              MP4, MOV or WebM · up to {MAX_VIDEO_DURATION_SECONDS}s
-            </p>
+          <div>
+            <button
+              type="button"
+              onClick={() => fileInputRef.current?.click()}
+              className="block w-full rounded-3xl p-10 text-center cursor-pointer"
+              style={{ border: `2px dashed ${c.lineSoft}`, background: c.blackSoft }}
+            >
+              <p className="text-sm mb-2" style={{ color: c.white, fontFamily: "var(--font-body)" }}>
+                Click to choose a video
+              </p>
+              <p className="text-xs" style={{ color: c.inkSoft, fontFamily: "var(--font-body)" }}>
+                MP4, MOV or WebM · up to {MAX_VIDEO_DURATION_SECONDS}s
+              </p>
+            </button>
             <input
               ref={fileInputRef}
               type="file"
@@ -176,7 +178,7 @@ export default function UploadPage() {
               className="hidden"
               onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])}
             />
-          </button>
+          </div>
         )}
 
         {(stage === "checking" || stage === "uploading" || stage === "transcribing") && (
